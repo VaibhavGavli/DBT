@@ -1,0 +1,130 @@
+1.
+select *
+from emp
+where sal=(select max(sal)
+           from emp);
+
+2.
+select *
+from emp
+where deptno=(select deptno
+              from emp
+              where ename='MARTIN');
+3.
+select *
+from emp
+where deptno in (select deptno
+              from emp
+              where ename='SMITH'or
+                    ename='ALLEN');
+
+4.
+select *
+from emp
+where sal > all(select sal
+             from emp
+             where ename in ('ALLEN','SMITH'));
+
+5.
+delete
+from emp111
+where deptno=(select deptno
+              from emp111
+              where ename='SMITH')
+and sal>1200;
+
+6.
+update emp112
+set sal=(select sal 
+         from emp112
+         where ename='JONES')
+where ename='SMITH';
+
+7.
+
+update emp112
+set sal=(sal+0.10*sal)
+where floor(months_between(sysdate,hiredate)/12)>40;
+
+
+
+8.
+select empno,ename,comm,
+case when comm=null then 'Need Improvement'
+     when comm < 500 then 'Okk'
+     when comm >500 and
+          comm <1000 then 'good'
+     else
+     'Excellent'
+end
+from emp112;
+
+
+9.
+
+
+
+10.
+select ename,job,deptno
+from emp112
+where job =(select job
+        from emp112
+        where empno=7499);
+
+11.
+select ename,job,deptno,sal
+from emp112
+where sal>(select sal
+           from emp112
+           where empno=7499);
+
+12.select ename,deptno,sal
+from emp
+where sal=(select min(sal)
+           from emp);
+
+
+13.
+select ename,empno,sal
+from emp
+where sal>(select avg(sal)
+           from emp);
+
+14.
+select ename,empno,sal
+from emp
+where mgr=(select ename
+             from emp
+             where ename like 'F%');
+
+15.
+select *
+from emp
+where sal between 1000 and 3000;
+
+16.
+select *
+from emp
+where sal in (select sal
+          from emp
+          where sal between(select min(sal) from emp) and 2500);
+
+
+17.select *
+from
+
+
+
+
+           
+
+
+
+
+           
+       
+          
+
+
+
+
