@@ -1,0 +1,81 @@
+
+Product1
+     PROID NAME              QTY
+---------- ---------- ----------
+        10 pen               100
+        11 pencil            200
+        12 paper             100
+        13 glitterpen         50
+
+Pro_details1
+     PREID      PRICE CITY
+---------- ---------- ---------------
+        10         10 pune
+                  150 pune
+        11          5 mumbai
+        12         10 chennai
+        13        100 kanpur
+
+
+CREATE TABLE  "AGENTS" 
+   (	
+    "AGENT_CODE" CHAR(6) NOT NULL PRIMARY KEY,  
+	"COMMISSION" NUMBER(10,2), 
+	"COUNTRY" VARCHAR2(25) 
+	 );
+
+INSERT INTO AGENTS VALUES ('A007', 102, 'France' );
+INSERT INTO AGENTS VALUES ('A003', 145, 'Vietnam');
+INSERT INTO AGENTS VALUES ('A008', 874, 'Mauritius');
+INSERT INTO AGENTS VALUES ('A011', 410.25, 'Belgium' );
+INSERT INTO AGENTS VALUES ('A010', 1000.36, 'Netherlanda');
+
+SELECT COUNTRY From agents
+Where COUNTRY LIKE '%m';
+
+SELECT COUNTRY From agents
+Where COUNTRY LIKE '%m%';
+# Gives back names even if m is last character.
+
+SELECT COUNTRY From agents
+Where COUNTRY LIKE '%m$';
+# Doesn't gives back names even if m is last character. 
+
+
+SELECT COUNTRY From agents
+Where REGEXP_LIKE(COUNTRY,'^N.*a$');
+
+
+SELECT COUNTRY From agents
+Where REGEXP_LIKE(COUNTRY,'.*I.*');
+
+SELECT COUNTRY From agents
+Where REGEXP_LIKE(COUNTRY,'a$');
+
+SELECT COUNTRY From agents
+Where REGEXP_LIKE(COUNTRY,'^[MVF]');
+
+SELECT COUNTRY From agents
+Where REGEXP_LIKE(COUNTRY,'[^N]');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

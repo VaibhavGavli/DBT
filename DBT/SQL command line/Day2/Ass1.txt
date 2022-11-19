@@ -1,0 +1,45 @@
+1.
+select * from emp
+where sal>2000;
+
+select * from emp
+where comm>200;
+
+2.
+select * from emp
+where job='CLERK' or sal>2000;
+
+3.
+select * from emp
+where sal=1250 or sal=1100;
+
+4.
+select * from emp
+where sal between 1250 and 2850;
+
+5.
+select ename,sal,deptno from emp
+where deptno = 20;
+
+6.
+select ename,sal+sal*0.10+nvl(comm,0)"total sal"
+from emp;
+
+7.
+select * from emp
+where hiredate>'9-June-1981';
+
+8.
+select empno,ename,sal,comm,sal+nvl(comm,0)"Total salary"
+from emp;
+
+9.
+select emp.ename,emp.deptno,dept.dname from emp,dept;
+
+10.
+select emp.ename,emp.deptno,dept.dname from emp,dept
+where emp.ename='SMITH';
+
+
+
+

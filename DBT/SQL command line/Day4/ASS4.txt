@@ -1,0 +1,118 @@
+1.
+select job,sum(sal),avg(sal),sum(sal+comm)"NetSalary"
+from emp
+group by job;
+
+2.
+select deptno,count(*)
+from emp
+group by deptno;
+
+3.
+select deptno,sum(sal),avg(sal)
+from emp
+where sal>1500
+group by deptno;
+
+4.
+select deptno,count(*)
+from emp
+where job='SALESMAN'
+group by deptno;
+
+5.
+select mgr,count(*)
+from emp
+group by mgr;
+
+6.
+select max(sal),min(sal),sum(sal) 
+from emp
+where sal between 1501 and 2999;
+
+7.
+select deptno, avg(sal)
+from emp
+group by deptno
+having avg(sal) > 2000;
+
+8. 
+select mgr,count(*)
+from emp
+where job='SALESMAN' or job='ANALYST'
+group by mgr
+having count(*) > 2;
+
+
+9.
+create table emp10
+as 
+select *
+from emp
+where 1=2;
+
+10.
+create table dept100
+as 
+select * 
+from dept;
+
+alter table dept100
+add constraint pk_deptno primary key(deptno);
+
+11.
+create table emp110
+as
+select * from emp
+where deptno=10;
+
+alter table emp110
+add constraint pk_empno primary key(empno);
+
+alter table dept100
+add constraint fk_deptno foreign key(deptno) references emp110 (deptno);
+
+12.
+insert into emp110(empno,ename,job,hiredate,sal,comm)
+values(0712,'kkkk','Mechanics','23-aug-200',26000,100);
+
+13.
+select * from emp110
+where mgr is not null;
+
+14.
+select ename,deptno
+from emp
+where hiredate between '01-jan-1981' and '31-march-1983'
+order by hiredate;
+
+15.
+select ename
+from emp
+where regexp_like(ename,'^A.*S$')or
+regexp_like(ename,'.N.*[NS]$')or
+regexp_like(ename,'..N.*[NS]$');
+
+
+
+create table sample
+(
+srno number(2),
+ename varchar2(10),
+comm number(4)
+);
+
+
+
+create sequence merasequence
+start with 1
+increment by 1
+minvalue 1
+maxvalue 100
+nocycle;
+
+insert into sample
+values(merasequence.nextval,'vaibhya',5000);
+
+
+

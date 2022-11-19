@@ -1,0 +1,109 @@
+1.
+select ename from emp
+where ename like '%R';
+
+2.
+select ename from emp
+where regexp_like(ename,'^M.*R$');
+
+3.
+select ename from emp
+where regexp_like(ename,'..L');
+
+4.
+select ename from emp
+where regexp_like(ename,'^M.L.*R$');
+
+5.
+select ename from emp
+where regexp_like(ename,'..L.*E.$');
+
+6.
+select ename from emp
+where regexp_like(ename,'^M') or regexp_like(ename,'^A');
+
+7.
+select ename from emp
+where regexp_like(ename,'^M.*R$') or regexp_like(ename,'^A.*R$') or regexp_like(ename,'^M.*E$') or regexp_like(ename,'^A.*E$');
+
+8.
+select ename from emp
+where regexp_like(ename,'^a.*e$') 
+or regexp_like(ename,'^m.*e$');
+
+9.
+select ename from emp
+where regexp_like(ename,'^A.*e$') 
+or regexp_like(ename,'^s.*h$');
+
+10.
+select ename from emp
+where regexp_like(ename,'^[^AM]');
+
+11.
+select * from emp
+where (sal between 1001 and 2999) and
+regexp_like(job,'^A.*T$');
+
+12.
+select empno, ename, sal, sal*1.1"INCREASED SAL",comm from emp
+where regexp_like(ename,'^[AMS]');
+
+13.
+select * from emp
+where (job='CLERK' or job='SALESMAN') and (sal>2000); 
+
+14.
+select * from emp
+where (regexp_like(ename,'^A.*s$')
+or regexp_like(ename,'^A.*n$')) or (deptno=10);
+
+15.
+select * from emp
+where (deptno=10 or deptno=30) or (extract (year from hiredate)=1982);
+
+16.
+select * from dept                                 # either this 
+where length(dname)>=5;
+							or		
+17.
+select * from dept				# or this. both methods are same.	
+where regexp_like(dname,'^[A-Za-z]{7}');
+
+
+18.
+select empno,ename,sal,sal*1.2"Sal Hike" from emp;
+
+
+19.
+select * from emp
+where mod(sal,3)=0;
+
+20.
+select concat(concat(ename,'****'), sal)"Strings" from emp;
+
+21.
+select concat(ename,'@mycompany.com')"Email" from emp;
+
+22.
+select concat(concat(substr(ename,1,3),'.'),concat(substr(job,2,2),'@mycompany.com'))
+from emp;
+
+23.
+Select concat( concat('Hello',ename), '!')
+from emp
+where comm is not null;
+
+24.
+select lpad(ename,10,' '), rpad(job,9,' ')
+from emp;
+
+25.
+select * from emp
+where (sal>2000) or (job='CLERK' or job='SALESMAN');
+
+
+
+
+
+

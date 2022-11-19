@@ -1,0 +1,23 @@
+create table student1
+(
+roll number(3),
+name varchar(20),
+per number(5,2)
+);
+
+
+insert into student1
+values(123,'Kaustubh',98.87);
+insert into student1
+values(456,'vaibhav',96.77);
+
+select * from student1;
+
+desc student1
+
+select roll from student1;
+
+select roll "Rollno" from student1;
+
+insert into student1(Rollno,name)
+values(897,'Prince');

@@ -1,0 +1,95 @@
+﻿create table vehicle
+(
+vid number(2),
+vname varchar2(20),
+price number(20),
+des varchar2(70)
+);
+
+insert into vehicle
+values(1,'Activa',80000,'Two wheeler.Sturdy.Milage 30 km');
+
+insert into vehicle
+values(2,'Santro',800000,'Product of Hyandai.');
+
+insert into vehicle
+values(3,'Motor bike',100000,'Sturdy and good milage');
+
+select * from vehicle;
+select 'Motor bike' from vehicle;
+
+select vname,des from vehicle
+WHERE vname='Motor bike';
+
+==========================================================
+create table Customer
+(
+Custid number(3),
+Cname varchar2(10),
+address varchar2(15)
+);
+
+insert into Customer
+values(1,'Kaustubh','sangvi');
+
+insert into Customer
+values(2,'vaibhav','nagpur');
+
+select * from Customer;
+
+delete from Customer;
+
+=============================================================
+create table Salesman
+(
+sid number(5),
+sname varchar2(10),
+address varchar2(15)
+);
+
+insert into Salesman
+values(10,'Rajesh','mumbai');
+
+insert into Salesman
+values(11,'Seema','Pune');
+
+insert into Salesman
+values(13,'Rakhi','pune');
+
+select * from Salesman;
+
+drop table Salesman;
+desc Salesman                      # file or object does not exist.
+===========================================================
+create table cust_vehicle
+(
+Custid number(2),
+Vid number(2),
+Sid number(3),
+Buy_price number(10)
+);
+
+insert into cust_vehicle
+values(1,1,10,75000);
+
+insert into cust_vehicle
+values(1,2,10,790000);
+
+insert into cust_vehicle
+values(2,3,11,80000);
+
+insert into cust_vehicle
+values(3,3,11,75000);
+
+insert into cust_vehicle
+values(3,2,10,800000);
+
+update cust_vehicle
+set Buy_price=80000
+WHERE Buy_price=75000;
+
+alter table cust_vehicle
+add rating number(5);
+
+
+

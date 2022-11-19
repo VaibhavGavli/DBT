@@ -1,0 +1,48 @@
+create table product1
+(
+proid number(2) not null,
+name varchar2(10) not null,
+qty number(3) not null,
+constraint pk_pid1 primary key (proid)
+);
+
+insert into product1
+values(10,'pen',100);
+
+insert into product1
+values(11,'pencil',200);
+
+insert into product1
+values(12,'paper',100);
+
+insert into product1
+values(13,'glitterpen',50);
+
+==================================================
+
+create table product_details1
+(
+preid number(2),
+price number(7,2) not null check(price>0),
+city varchar2(15) not null,
+constraint fk_preid foreign key(preid) references product1(proid)
+);
+
+insert into product_details1
+values(10,10,'pune');
+
+insert into product_details1(price,city)
+values(150,'pune');
+
+insert into product_details1
+values(11,5,'mumbai');
+
+insert into product_details1
+values(12,10,'chennai');
+
+insert into product_details1
+values(13,100,'kanpur');
+
+select product1.proid,product1.name,product1.qty,product_details1.price,product_details1.city
+from product1,product_details1
+WHERE proid = preid;
