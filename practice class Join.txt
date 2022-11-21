@@ -1,0 +1,20 @@
+select e.empno,e.ename,d.dname
+from emp e
+cross join dept d;
+
+select e.empno,e.ename,e.deptno,d.dname
+from emp e
+inner join dept d
+on e.deptno=d.deptno;
+
+select e.empno,e.ename,e.sal,s.grade
+from emp e
+inner join salgrade s
+on e.sal between s.losal and s.hisal;
+
+select e.empno,e.ename,e.mgr,m.ename
+from emp e
+join emp m
+on e.mgr=m.empno;
+
+
