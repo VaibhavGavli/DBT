@@ -1,0 +1,98 @@
+2.
+select upper(FIRST_NAME)
+from WORKER;
+3.
+select DISTINCT DEPARTMENT 
+from WORKER;
+4.
+select SUBSTR(FIRST_NAME,1,3) 
+from WORKER;
+5.
+select instr('Amitabh','a')
+from WORKER;
+6.
+select concat(FIRST_NAME,concat(' ',DEPARTMENT))
+from WORKER;
+7.
+select ltrim(DEPARTMENT)
+from WORKER;
+8.
+select DISTINCT length(DEPARTMENT)
+from WORKER;
+9.
+select replace(FIRST_NAME,'a','A')
+from WORKER;
+10.
+select concat(FIRST_NAME,concat(' ',LAST_NAME)) "COMMON_NAME"
+from WORKER;
+11.
+select *
+from WORKER
+order by FIRST_NAME;
+12.
+select *
+from WORKER
+order by FIRST_NAME desc;
+13.
+select *
+from WORKER
+where FIRST_NAME in ('Vipul','Satish');
+14.
+select *
+from WORKER
+where FIRST_NAME not in ('Vipul','Satish');
+15.
+select *
+from WORKER
+where DEPARTMENT='Admin';
+16.
+select *
+from WORKER
+where regexp_like(FIRST_NAME,'a.*');
+17.
+select *
+from WORKER
+where regexp_like(FIRST_NAME,'a$');
+18.
+select *
+from WORKER
+where regexp_like(FIRST_NAME,'^.{5}h$');
+19.
+select *
+from WORKER
+where SALARY between 100000 and 500000;
+20.
+select *
+from WORKER
+where extract(YEAR FROM JOINING_DATE)=2020
+AND
+extract(MONTH FROM JOINING_DATE)=2;
+21.
+select count(*)
+from WORKER
+where DEPARTMENT='Admin';
+22.
+select FIRST_NAME
+from WORKER
+where SALARY>= 50000 and SALARY<= 100000;
+23.
+select DEPARTMENT,count(*)
+from WORKER
+group by DEPARTMENT
+order by count(*) desc;
+24.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
