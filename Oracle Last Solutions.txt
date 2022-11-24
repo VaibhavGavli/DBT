@@ -81,6 +81,173 @@ from WORKER
 group by DEPARTMENT
 order by count(*) desc;
 24.
+select *
+from Worker
+where WORKER_ID=any(select WORKER_REF_ID
+                    from Title
+                    where WORKER_TITLE='Manager');
+25.
+select WORKER_TITLE,count(*)
+from Title
+group by WORKER_TITLE
+Having count(*)>1;
+
+26.
+select * 
+from Worker
+where mod(WORKER_ID,2)!=0;
+27.
+select * 
+from Worker
+where mod(WORKER_ID,2)=0;
+28.
+create table new_clone
+as
+select * 
+from WORKER
+where 1=2;
+29.
+TABLE1 INTERSETCT TABLE2
+
+ 		(SELECT * FROM WORKER)
+		INTERSECT
+		(SELECT * FROM new_clone);
+30.
+select * from WORKER
+minus
+select * from new_clone;
+31.
+select current_Timestamp from dual;
+32.
+select * from worker
+where ROWNUM<=3;
+33.
+select  distinct SALARY
+from Worker w1
+where 3=(select count(distinct SALARY)
+         from Worker w2
+         where w2.SALARY>w1.SALARY);
+35.
+select w1.* from WORKER w1,WORKER w2
+where w1.SALARY=W2.SALARY
+and w1.WORKER_ID!=w2.WORKER_ID;
+
+36.
+select max(SALARY)
+from WORKER
+where SALARY not in (select max(SALARY)
+                     from WORKER);
+37.
+select w1.*
+from WORKER w1
+union all
+select w2.*
+from WORKER w2;
+
+38.
+create table worker_Iner
+as
+select FIRST_NAME,LAST_NAME
+from WORKER;
+
+select * 
+from worker_Iner w1
+intersect
+select FIRST_NAME,LAST_NAME
+from WORKER w2;
+
+39.
+select *
+from WORKER
+where WORKER_ID<=(select count(WORKER_ID)/2
+                  from WORKER);
+40.
+select DEPARTMENT
+from WORKER
+group by DEPARTMENT
+Having count(WORKER_ID)<4;
+
+41.
+select DEPARTMENT "DEPT",count(WORKER_ID) "NOW"
+from WORKER
+group by DEPARTMENT;
+
+42.
+select *
+from WORKER
+where WORKER_ID=(select max(WORKER_ID)
+                  from WORKER);
+43.
+select *
+from WORKER
+where WORKER_ID=(select min(WORKER_ID)
+                  from WORKER);
+44.
+
+		SELECT *
+		FROM (select * from worker ORDER BY worker_id DESC) 
+		WHERE rownum <= 5;
+
+45.
+select max(SALARY)
+from WORKER
+group by DEPARTMENT;
+
+46.
+select distinct SALARY
+from WORKER w1
+where 3>=(select count(distinct SALARY)
+          from WORKER w2
+          where w2.SALARY>=w1.SALARY)
+          order by w1.SALARY ;
+47.
+select distinct SALARY
+from WORKER w1
+where 3>=(select count(distinct SALARY)
+          from WORKER w2
+          where w2.SALARY<=w1.SALARY)
+          order by w1.SALARY ;
+48.
+select distinct SALARY
+from WORKER w1
+Where 3=(select count(distinct SALARY)
+         from WORKER w2
+         where w2.SALARY>w1.SALARY);
+49.
+select DEPARTMENT,sum(SALARY)
+from WORKER
+group by DEPARTMENT;
+50.
+select FIRST_NAME,SALARY
+from WORKER
+where SALARY=(select max(SALARY)
+              from WORKER);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+ 
 
 
 
