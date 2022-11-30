@@ -1,0 +1,117 @@
+insert into faculty
+values(10,'Amol','database','JAVA');
+
+insert into faculty
+values(11,'Asha','JAVA','MySQL');
+
+insert into faculty
+values(12,'Kiran','CPP','Database');
+
+
+insert into faculty
+values(13,'Seeta','MySQL','database');
+
+
+   CREATE TABLE room(
+   rid number primary key,
+   rname varchar2(15) not null,
+   rloc varchar2(20)
+
+insert into room
+values(100,'jasmin','1st floor');
+
+
+insert into room
+values(101,'Rose','2nd floor');
+
+
+insert into room
+values(105,'Lotus','1st floor');
+
+
+insert into room
+values(103,'Mogra','1st floor');
+
+1.
+select c.cid,c.cname,r.rid,r.rname
+from courses c
+full join room r
+on c.rid=r.rid
+where c.rid is null;
+
+
+select r.rid,r.rname,c.cid,c.cname
+from room r
+left join courses c
+on r.rid=c.rid;
+
+select rid
+from room 
+where not exists(select rid
+               from courses
+               where room.rid=courses.rid);
+
+1.select pname,cid,qty,price
+from Product11
+where cid=1;
+
+2.
+select pid,pname,cid,qty,price,sid
+from product11
+where sid=12;
+
+3.
+select s.sid,s.sname,p.sid
+from salesman s
+right join Product11 p
+on s.sid=p.sid
+where s.sname='kirti';
+
+select *
+from salesman
+where sid not exists (select sid
+                    from Product11);
+
+
+
+7.
+alter table salesman
+add credit_limit number(5);
+
+6.
+select sname
+from salesman
+where regexp_like(city,'^[PN]');
+
+4.
+select c.cname
+from category c
+where not exists(select p.sid
+                 from Product11
+                 where c.cid=p.cid);
+ 
+                      
+
+
+
+
+
+
+
+
+
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+

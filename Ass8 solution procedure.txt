@@ -1,0 +1,41 @@
+1.Write a procedure which will count number of managers in emp table.
+create or replace procedure count_manager(cnt out number)
+as
+begin
+select count(*) into cnt
+from emp
+where job='MANAGER';
+
+end;
+/
+
+
+set serveroutput on;
+variable total number;
+execute count_manager( :total);
+print total;
+
+-----------------------------------------------------------------------------
+2.Write a function which will count the average of 5 numbers. Function should 
+  return avg and take 5 values as input.
+
+create or replace function average(n1 in number,n2 in number,n3 in number ,n4 in number,n5 in number)
+return number 
+as
+a number;
+begin
+a:=(n1+n2+n3+n4+n5)/5;
+return a;
+end;
+/
+
+declare
+a number;
+begin
+a:=average(10,20,30,40,50);
+dbms_output.put_line('value is:'||a);
+end;
+/
+
+
+
